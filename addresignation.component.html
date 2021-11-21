@@ -5,22 +5,37 @@
 <h2>Apply Resignation</h2>
 <form #loginfrm="ngForm" class="form-group" (ngSubmit)="addresign(loginfrm.value)" >
     <fieldset>
+        <div class="form-group" [class.has-error]="e1.invalid && e1.touched" [class.has-success]="e1.valid">
 <label  class="col-sm-2 col-form-label">Enter EmpId</label>
-<input type="number" [(ngModel)]="addr.EmpId" name="EmpId"/>
+<input type="number" [(ngModel)]="addr.EmpId" name="EmpId" #empname="ngModel"/>
+            <span class="help-block" *ngIf="e1.invalid && e1.touched"  style="color: red;">ID is required</span>
+       </div>
 <br/>
+         <div class="form-group" [class.has-error]="e2.invalid && e2.touched" [class.has-success]="e2.valid">
 <label  class="col-sm-2 col-form-label">Enter PhoneNo</label>
-<input type="number" [(ngModel)]="addr.PhoneNo" name="PhoneNo"/>
+<input type="number" [(ngModel)]="addr.PhoneNo" name="PhoneNo" #empname="ngModel"/>
+             <span class="help-block" *ngIf="e2.invalid && e2.touched"  style="color: red;">Number is required</span>
+       </div>
 <br/>
+        <div class="form-group" [class.has-error]="e3.invalid && e3.touched" [class.has-success]="e3.valid">
 <label  class="col-sm-2 col-form-label">Enter NoticePeriodDate</label>
-<input type="date" [(ngModel)]="addr.NoticePeriodDate" name="NoticePeriodDate"/>
+<input type="date" [(ngModel)]="addr.NoticePeriodDate" name="NoticePeriodDate" #empname="ngModel"/>
+             <span class="help-block" *ngIf="e3.invalid && e3.touched"  style="color: red;">NoticePeriodDate is required</span>
+       </div>
 <br/>
+         <div class="form-group" [class.has-error]="r4.invalid && r4.touched" [class.has-success]="r4.valid">
 <label>Enter NoticePeriod</label>
-<input type="number" [(ngModel)]="addr.NoticePeriod" name="NoticePeriod"/>
+<input type="number" [(ngModel)]="addr.NoticePeriod" name="NoticePeriod" #empname="ngModel"/>
+             <span class="help-block" *ngIf="r4.invalid && r4.touched"  style="color: red;">NoticePeriod is required</span>
+       </div>
 <br/>
+        <div class="form-group" [class.has-error]="r3.invalid && r3.touched" [class.has-success]="r3.valid">
 <label  class="col-sm-2 col-form-label">ResignationDate</label>
-<input type="date" [(ngModel)]="addr.ResignationDate" name="ResignationDate"/>
+<input type="date" [(ngModel)]="addr.ResignationDate" name="ResignationDate" #empname="ngModel"/>
+             <span class="help-block" *ngIf="r3.invalid && r3.touched"  style="color: red;">ResignationDate is required</span>
+       </div>
 <br/>
-<input type="submit" class="btn btn-primary" name="vu"/>
+<input type="submit" class="btn btn-primary" name="vu" [disabled]="!loginfrm.valid"/>
     </fieldset>
 </form>
     </div>
