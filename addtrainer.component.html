@@ -1,26 +1,35 @@
-<div class="d-flex flex-row bd-highlight mb-3 justify-content-center">
-
-    <div class="form-froup row" style="width: 60%;">
-
-<form #loginfrm="ngForm" class="form-group look" (ngSubmit)="addtra(loginfrm.value)" >
+<form #loginfrm="ngForm" class="form-group" (ngSubmit)="addtra(loginfrm.value)" >
     <fieldset>
-<label  class="col-sm-2 col-form-label">Enter EmpId</label>
-<input type="number" [(ngModel)]="addt.TrainerId" name="EmpId"/>
+<div class="form-group" [class.has-error]="empname.invalid && empname.touched" [class.has-success]="empname.valid">
+<label>Enter TrainerId</label>
+<input type="number" [(ngModel)]="addt.TrainerId" name="TrainerId" #empname="ngModel"/>
+<span class="help-block" *ngIf="empname.invalid && empname.touched"  style="color: red;">ID is required</span>
+        </div>
 <br/>
-<label  class="col-sm-2 col-form-label">Enter PhoneNo</label>
-<input type="number" [(ngModel)]="addt.TrainerName" name="PhoneNo"/>
+    <div class="form-group" [class.has-error]="empname.invalid && empname.touched" [class.has-success]="empname.valid">
+<label>Enter TrainerName</label>
+<input type="text" [(ngModel)]="addt.TrainerName" name="TrainerName"/ #empname="ngModel">
+        <span class="help-block" *ngIf="empname.invalid && empname.touched"  style="color: red;">Name is required</span>
+    </div>
 <br/>
-<label  class="col-sm-2 col-form-label">Enter NoticePeriodDate</label>
-<input type="date" [(ngModel)]="addt.Address" name="NoticePeriodDate"/>
+        <div class="form-group" [class.has-error]="empname.invalid && empname.touched" [class.has-success]="empname.valid">
+<label>Enter Address</label>
+<input type="text" [(ngModel)]="addt.Address" name="Address" #empname="ngModel"/>
+            <span class="help-block" *ngIf="empname.invalid && empname.touched"  style="color: red;">Address is required</span>
+    </div>
 <br/>
-<label  class="col-sm-2 col-form-label">Enter NoticePeriod</label>
-<input type="number" [(ngModel)]="addt.City" name="NoticePeriod"/>
+         <div class="form-group" [class.has-error]="empname.invalid && empname.touched" [class.has-success]="empname.valid">
+<label>Enter City</label>
+<input type="text" [(ngModel)]="addt.City" name="NoticePeriod" #empname="ngModel"/>
+             <span class="help-block" *ngIf="empname.invalid && empname.touched"  style="color: red;">City is required</span>
+    </div>
 <br/>
-<label  class="col-sm-2 col-form-label">ResignationDate</label>
-<input type="date" [(ngModel)]="addt.Technology" name="ResignationDate"/>
+        <div class="form-group" [class.has-error]="empname.invalid && empname.touched" [class.has-success]="empname.valid">
+<label>Technology</label>
+<input type="text" [(ngModel)]="addt.Technology" name="Technology" #empname="ngModel"/>
+            <span class="help-block" *ngIf="empname.invalid && empname.touched"  style="color: red;">Technology is required</span>
+    </div>
 <br/>
 <input type="submit" class="btn btn-primary" name="vu"/>
     </fieldset>
 </form>
-    </div>
-</div>
